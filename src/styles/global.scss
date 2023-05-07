@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@100;200;300;400;500;600;700;800;900&family=Oswald:wght@200;300;400;500;600;700&display=swap');
+@import './variables';
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	letter-spacing: 1px;
+	-webkit-tap-highlight-color: transparent;
+}
+
+html {
+	font-size: 16px;
+	font-family: 'Urbanist', sans-serif;
+}
+
+body {
+	max-width: 100vw;
+	overflow-x: hidden;
+}
+
+a {
+	all: unset;
+}
+
+ul li {
+	list-style: none;
+}
+
+// container styles
+
+.container {
+	display: flex;
+	flex-direction: column;
+
+	&__section {
+		margin: 0 auto;
+		width: 100%;
+		max-width: 1280px;
+	}
+}
+
+// @media screen and (max-width: $mediumScreenSize) {
+// 	.container {
+// 		&__section {
+// 			// max-width: 90vw;
+// 		}
+// 	}
+// }
