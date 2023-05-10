@@ -10,51 +10,7 @@ import '@/styles/components/header/style.scss';
 import Link from 'next/link';
 import { IGenericComponentProps } from '@/types';
 import { IoMdClose } from 'react-icons/io';
-
-const navLinks = [
-	{
-		label: 'Home',
-		link: '/',
-		isMenu: false,
-	},
-	{
-		label: 'About',
-		link: '/#',
-		isMenu: false,
-	},
-	{
-		label: 'Categories',
-		link: '/#',
-		isMenu: true,
-		submenu: [
-			{
-				label: 'Jordan',
-				link: '',
-				count: 9,
-			},
-			{
-				label: 'Football Shoes',
-				link: '',
-				count: 4,
-			},
-			{
-				label: 'Sneakers',
-				link: '',
-				count: 4,
-			},
-			{
-				label: 'Running Shoes',
-				link: '',
-				count: 3,
-			},
-		],
-	},
-	{
-		label: 'Contact',
-		link: '/#',
-		isMenu: false,
-	},
-];
+import { navLinks } from './config';
 
 interface INavSubMenuProps<T> extends IGenericComponentProps {
 	options: T[];

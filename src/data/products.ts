@@ -74,6 +74,7 @@ const data = {
 				updatedAt: '2023-03-17T00:49:09.916Z',
 				publishedAt: '2023-03-17T00:49:09.754Z',
 				image: p1,
+				categories: ['Jordan', 'Football Shoes', 'Sneakers'],
 			},
 		},
 		{
@@ -146,6 +147,7 @@ const data = {
 				updatedAt: '2023-03-17T00:49:44.651Z',
 				publishedAt: '2023-03-17T00:49:44.447Z',
 				image: p2,
+				categories: ['Jordan', 'Football Shoes', 'Sneakers'],
 			},
 		},
 		{
@@ -214,6 +216,7 @@ const data = {
 				updatedAt: '2023-03-17T00:52:14.052Z',
 				publishedAt: '2023-03-17T00:52:13.850Z',
 				image: p3,
+				categories: ['Jordan', 'Football Shoes', 'Sneakers'],
 			},
 		},
 		{
@@ -282,6 +285,7 @@ const data = {
 				updatedAt: '2023-03-17T00:54:27.456Z',
 				publishedAt: '2023-03-17T00:54:27.292Z',
 				image: p4,
+				categories: ['Jordan', 'Football Shoes', 'Sneakers'],
 			},
 		},
 		{
@@ -350,6 +354,7 @@ const data = {
 				updatedAt: '2023-03-17T00:57:04.569Z',
 				publishedAt: '2023-03-17T00:57:04.405Z',
 				image: p5,
+				categories: ['Jordan', 'Football Shoes', 'Sneakers'],
 			},
 		},
 		{
@@ -418,6 +423,7 @@ const data = {
 				updatedAt: '2023-03-17T00:59:19.151Z',
 				publishedAt: '2023-03-17T00:59:18.984Z',
 				image: p6,
+				categories: ['Jordan', 'Football Shoes', 'Sneakers'],
 			},
 		},
 		{
@@ -486,6 +492,7 @@ const data = {
 				updatedAt: '2023-03-17T01:00:48.662Z',
 				publishedAt: '2023-03-17T01:00:48.493Z',
 				image: p7,
+				categories: ['Jordan', 'Football Shoes', 'Sneakers'],
 			},
 		},
 		{
@@ -554,6 +561,7 @@ const data = {
 				updatedAt: '2023-03-17T01:02:39.000Z',
 				publishedAt: '2023-03-17T01:02:38.836Z',
 				image: p6,
+				categories: ['Jordan', 'Football Shoes', 'Sneakers'],
 			},
 		},
 		{
@@ -622,6 +630,7 @@ const data = {
 				updatedAt: '2023-03-17T01:04:23.770Z',
 				publishedAt: '2023-03-17T01:04:23.573Z',
 				image: p1,
+				categories: ['Jordan', 'Football Shoes', 'Sneakers'],
 			},
 		},
 	],

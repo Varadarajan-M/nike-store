@@ -1,5 +1,11 @@
 import React from 'react';
 
+declare global {
+	interface String {
+		toTitleCase(): string;
+	}
+}
+
 interface IGenericComponentProps {
 	className?: string;
 	children?: React.ReactNode;
@@ -24,5 +30,6 @@ export type TProduct = {
 		updatedAt: string;
 		publishedAt: string;
 		image: string | any;
+		categories: string[];
 	};
 };
