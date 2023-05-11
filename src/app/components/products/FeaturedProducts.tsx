@@ -1,8 +1,6 @@
 'use client';
 
-import React, { Fragment } from 'react';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Carousel } from 'react-responsive-carousel';
+import React from 'react';
 import slide1 from '@/assets/slide-1.png';
 import slide2 from '@/assets/slide-2.png';
 import slide3 from '@/assets/slide-3.png';
@@ -10,6 +8,7 @@ import slide3 from '@/assets/slide-3.png';
 import Image from 'next/image';
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
 import { IGenericComponentProps } from '@/types';
+import Carousel from '../ui/Carousel';
 
 type TFeaturedProduct = {
 	link: string;
