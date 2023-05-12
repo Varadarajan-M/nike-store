@@ -1,0 +1,123 @@
+@import '../variables';
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+.product-details__container {
+	padding: 0 2.4rem;
+	.product-details {
+		display: grid;
+		grid-template-columns: 55% 1fr;
+		gap: 2rem;
+		.product-details__carousel {
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: center;
+			}
+			.carousel-root {
+				display: flex;
+				flex-direction: row-reverse;
+				gap: 15px !important;
+				.carousel:not(.carousel-slider) {
+					width: auto;
+
+					max-height: 400px;
+					overflow: visible auto;
+					max-width: 90vw;
+
+					.control-arrow {
+						display: none;
+					}
+
+					.thumbs-wrapper {
+						display: inline;
+
+						.thumbs {
+							display: flex;
+							flex-direction: column;
+							gap: 0.8rem;
+							transform: none !important;
+
+							.thumb {
+								border-radius: 8px;
+								position: relative;
+								cursor: pointer;
+								outline: none;
+								border: none;
+
+								margin-right: 20px;
+
+								min-height: 60px;
+								min-width: 60px;
+
+								&:hover {
+									border: none;
+									outline: none;
+								}
+
+								&::after {
+									content: ' ';
+									position: absolute;
+									top: 0;
+									left: 0;
+									width: 100%;
+									background-color: #0000000f;
+									height: 100%;
+									opacity: 0;
+									transition: opacity 0.2 ease-in;
+								}
+
+								&.selected::after {
+									opacity: 1;
+								}
+
+								&.selected {
+									border: 2px solid red;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $mediumScreenSize) {
+	.product-details__container {
+		.product-details {
+			grid-template-columns: 1fr;
+			.product-details__carousel {
+				.carousel-root {
+					flex-direction: column;
+					align-items: center;
+
+					.carousel:not(.carousel-slider) {
+						.thumbs-wrapper {
+							.thumbs {
+								flex-direction: row;
+								gap: 0.2rem;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $smallScreenSize) {
+	.product-details__container {
+		padding: 0;
+		.product-details {
+			.product-details__carousel {
+				.carousel-root {
+					gap: 15px;
+				}
+			}
+		}
+	}
+}

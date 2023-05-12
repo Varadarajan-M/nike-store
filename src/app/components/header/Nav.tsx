@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, Fragment, useEffect, useCallback } from 'react';
-import nikeLogo from '@/assets/logo.svg';
+import nikeLogo from '@assets/logo.svg';
 import Image from 'next/image';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { FiHeart } from 'react-icons/fi';

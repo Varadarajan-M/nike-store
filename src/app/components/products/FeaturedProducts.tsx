@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
-import slide1 from '@/assets/slide-1.png';
-import slide2 from '@/assets/slide-2.png';
-import slide3 from '@/assets/slide-3.png';
+import slide1 from '@assets/slide-1.png';
+import slide2 from '@assets/slide-2.png';
+import slide3 from '@assets/slide-3.png';
 
 import Image from 'next/image';
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
