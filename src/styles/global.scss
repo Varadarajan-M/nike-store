@@ -40,6 +40,15 @@ ul li {
 	}
 }
 
+.centered-container {
+	height: 100dvh;
+	width: 100%;
+	display: flex;
+	.centered {
+		margin: auto;
+	}
+}
+
 // @media screen and (max-width: $mediumScreenSize) {
 // 	.container {
 // 		&__section {

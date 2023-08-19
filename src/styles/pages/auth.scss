@@ -1,0 +1,43 @@
+@import '../variables';
+
+.auth-wrapper {
+	width: 500px;
+	max-width: 700px;
+	display: flex;
+	flex-direction: column;
+	background-color: #ffffff;
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+	padding: 4.3rem 3.5rem;
+
+	border-radius: 10px;
+
+	.header {
+		text-align: center;
+		margin: 2rem 0;
+		transform: translateX(-2%);
+		font-size: 1.5rem;
+		letter-spacing: 0.2px;
+	}
+	.auth-actions {
+		margin: auto;
+		display: flex;
+		align-items: center;
+		gap: 10px;
+
+		.action.active {
+			font-weight: 700;
+		}
+	}
+}
+
+@media screen and (max-width: $mediumScreenSize) {
+	.auth-wrapper {
+		width: 80vw;
+	}
+}
+
+@media screen and (max-width: $smallScreenSize) {
+	.auth-wrapper {
+		padding: 2rem;
+	}
+}

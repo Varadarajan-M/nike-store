@@ -1,6 +1,3 @@
-import Nav from './components/header/Nav';
-import Container from './components/ui/Container';
-import Footer from './components/footer';
 import '@/styles/global.scss';
 
 export const metadata = {
@@ -15,13 +12,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang='en'>
-			<body>
-				<Container>
-					<Nav />
-					{children}
-				</Container>
-				<Footer />
-			</body>
+			<body>{children}</body>
 		</html>
 	);
 }

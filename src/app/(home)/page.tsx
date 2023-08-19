@@ -1,7 +1,9 @@
-import FeaturedProducts from './components/products/FeaturedProducts';
+import FeaturedProducts from '../components/products/FeaturedProducts';
+import { ProductCard } from '../components/products/ProductCards';
+
 import products from '@/data/products';
-import { ProductCard } from './components/products/ProductCards';
 import { TProduct } from '@/types';
+
 import '@/styles/pages/home.scss';
 
 export default function Home() {

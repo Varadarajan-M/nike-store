@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Carousel from '@/app/components/ui/Carousel';
+
 import '@/styles/pages/product-details.scss';
 
 const images = [
