@@ -1,5 +1,34 @@
 {
 	"typescript.tsdk": "node_modules\\typescript\\lib",
 	"typescript.enablePromptUseWorkspaceTsdk": true,
-	"editor.acceptSuggestionOnEnter": "on"
+	"editor.acceptSuggestionOnEnter": "on",
+	"sqltools.connections": [
+		{
+			"mysqlOptions": {
+				"authProtocol": "default",
+				"enableSsl": "Disabled"
+			},
+			"previewLimit": 50,
+			"server": "localhost",
+			"port": 3306,
+			"driver": "MySQL",
+			"name": "localhost",
+			"database": "test",
+			"username": "root",
+			"askForPassword": true
+		},
+		{
+			"mysqlOptions": {
+				"authProtocol": "default",
+				"enableSsl": "Disabled"
+			},
+			"previewLimit": 50,
+			"server": "localhost",
+			"port": 3306,
+			"driver": "MySQL",
+			"database": "nike_store",
+			"username": "root",
+			"name": "nikestore"
+		}
+	]
 }

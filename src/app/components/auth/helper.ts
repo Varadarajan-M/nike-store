@@ -1,5 +1,4 @@
-const EMAIL_REGEX: RegExp =
-	/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+import { EMAIL_REGEX } from "@/util";
 
 export const getFields = (mode: 'login' | 'register') => {
 	const fields = [

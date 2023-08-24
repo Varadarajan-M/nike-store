@@ -1,8 +1,12 @@
 import { Fragment } from 'react';
-import GoogleLogin from './GoogleLogin';
+import GoogleSignin from './GoogleSignin';
 import { IFormProps } from '.';
 
-const FormActions = ({ mode }: IFormProps) => {
+interface IFormActionsProps extends IFormProps {
+	onGoogleSignin: () => void;
+}
+
+const FormActions = ({ mode, onGoogleSignin }: IFormActionsProps) => {
 	const isLogin = mode === 'login';
 	return (
 		<div className='form__actions'>
@@ -10,7 +14,7 @@ const FormActions = ({ mode }: IFormProps) => {
 			{isLogin && (
 				<Fragment>
 					<span className='seperator'>OR</span>
-					<GoogleLogin />
+					<GoogleSignin onGoogleSignin={onGoogleSignin} />
 				</Fragment>
 			)}
 		</div>

@@ -11,6 +11,7 @@ const Auth = () => {
 	const handleToggle = useCallback((e: any) => {
 		setIsLogin(!e.target.checked);
 	}, []);
+
 	return (
 		<div className='auth-wrapper'>
 			<Header onToggle={handleToggle} isLogin={isLogin} />

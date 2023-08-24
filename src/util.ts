@@ -11,3 +11,6 @@ String.prototype.toTitleCase = function (this: string) {
 		)
 		.join('');
 };
+
+export const EMAIL_REGEX: RegExp =
+	/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
