@@ -15,9 +15,9 @@ export interface IUser extends RowDataPacket {
 	id?: number;
 	username: string;
 	email: string;
-	password?: string;
+	password?: string | null;
 	provider: string;
-	googleId?: string;
+	googleId?: string | null;
 	createdAt?: string;
 }
 
@@ -55,14 +55,18 @@ const findPrivateUserByEmail = async (conn: MysqlConnection, email: string) =>
 
 const createUser = async (
 	conn: MysqlConnection,
-	user: Pick<IUser, 'username' | 'email' | 'password' | 'provider'>,
+	user: Pick<
+		IUser,
+		'username' | 'email' | 'password' | 'provider' | 'googleId'
+	>,
 ) => {
-	const query = `INSERT INTO users(username,email,password,provider) VALUES(?,?,?,?)`;
+	const query = `INSERT INTO users(username,email,password,provider,google_id) VALUES(?,?,?,?,?)`;
 	const [rows] = await conn.query<ResultSetHeader>(query, [
 		user.username,
 		user.email,
 		user.password,
 		user.provider,
+		user.googleId,
 	]);
 	if (rows?.insertId) {
 		const user = await findUserById(conn, +rows?.insertId);

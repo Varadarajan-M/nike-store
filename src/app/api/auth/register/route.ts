@@ -27,6 +27,7 @@ export async function POST(request: Request) {
 			email: res.email,
 			password: await bcrypt.hash(res.password, +process.env.SALT_ROUNDS!),
 			provider: 'credentials',
+			googleId:null,
 		};
 
 		const newUser = await createUser(conn, data);

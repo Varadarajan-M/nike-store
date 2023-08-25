@@ -4,7 +4,7 @@ import { DefaultJWT } from 'next-auth/jwt';
 declare module 'next-auth' {
 	interface User extends DefaultUser {
 		id: string;
-		username: string;
+		name: string;
 		email: string;
 		provider: string;
 		googleId?: string;
@@ -19,6 +19,6 @@ declare module 'next-auth/jwt' {
 		id?: string;
 		provider?: string;
 		email?: string;
-		username?: string;
+		name?: string;
 	}
 }

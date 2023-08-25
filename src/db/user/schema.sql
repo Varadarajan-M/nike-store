@@ -3,7 +3,7 @@
 -- @block
 CREATE TABLE users(
     id INT AUTO_INCREMENT,
-    username VARCHAR(100) UNIQUE NOT NULL,
+    username VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     password VARCHAR(255),
     provider ENUM('credentials','google') DEFAULT 'credentials' NOT NULL,
@@ -17,4 +17,4 @@ CREATE TABLE users(
 
 -- Show all tables
 -- @block
-SHOW TABLES
+DROP TABLE users

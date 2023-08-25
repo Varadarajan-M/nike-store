@@ -52,6 +52,7 @@ const Form = ({ mode }: { mode: 'login' | 'register' }) => {
 		async (data: FormFields) => {
 			if (mode === 'login') {
 				const res = await handleSignin({ ...data });
+				if (res?.error) return alert(res?.error);
 			}
 			if (mode === 'register') {
 				const res = await registerUser({
@@ -67,7 +68,7 @@ const Form = ({ mode }: { mode: 'login' | 'register' }) => {
 	);
 
 	const handleGoogleSignin = useCallback(() => {
-		signIn('google', {});
+		signIn('google', { callbackUrl: '/api/auth/callback/google' });
 	}, []);
 
 	return (
