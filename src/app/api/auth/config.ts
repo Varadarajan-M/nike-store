@@ -24,7 +24,7 @@ const options: NextAuthOptions = {
 
 				if (user.provider === 'google')
 					throw new Error(
-						'We found a google account associated with this email. Please click on Continue with Google...',
+						'We found a google account associated with this email. \n Please continue with google...',
 					);
 
 				const isPasswordMatch = await bcrypt.compare(
@@ -33,8 +33,6 @@ const options: NextAuthOptions = {
 				);
 
 				if (!isPasswordMatch) throw new Error('Invalid credentials');
-
-				console.log(user);
 
 				const res: User = {
 					id: user?.id?.toString()!,
@@ -85,12 +83,6 @@ const options: NextAuthOptions = {
 			return true;
 		},
 		async jwt(params) {
-			if (params.token) {
-				// delete unwanted info from token
-				delete params.token.picture;
-				delete params.token.sub;
-			}
-
 			const isGoogleUser =
 				params.account?.provider === 'google' &&
 				params.account &&
@@ -127,6 +119,7 @@ const options: NextAuthOptions = {
 				params.session.user.email = params.token.email as string;
 				params.session.user.provider = params.token.provider as string;
 				params.session.user.name = params.token.name as string;
+				params.session.user.image = params.token.picture;
 			}
 
 			return params.session;

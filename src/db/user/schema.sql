@@ -18,3 +18,7 @@ CREATE TABLE users(
 -- Show all tables
 -- @block
 DROP TABLE users
+
+-- Remove user
+-- @block
+DELETE FROM users where username = "";

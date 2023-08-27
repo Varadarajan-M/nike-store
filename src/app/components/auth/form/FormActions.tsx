@@ -1,16 +1,22 @@
 import { Fragment } from 'react';
 import GoogleSignin from './GoogleSignin';
-import { IFormProps } from '.';
+import { FormStatus, IFormProps } from '.';
 
 interface IFormActionsProps extends IFormProps {
 	onGoogleSignin: () => void;
+	status: FormStatus;
 }
 
-const FormActions = ({ mode, onGoogleSignin }: IFormActionsProps) => {
+const FormActions = ({ mode, onGoogleSignin, status }: IFormActionsProps) => {
 	const isLogin = mode === 'login';
+
+	const buttonText = isLogin ? 'Login' : 'Register';
+
 	return (
 		<div className='form__actions'>
-			<button className='submit'>{isLogin ? 'Login' : 'Register'}</button>
+			<button className='submit' disabled={status === FormStatus.IN_PROGRESS}>
+				{buttonText}
+			</button>
 			{isLogin && (
 				<Fragment>
 					<span className='seperator'>OR</span>
