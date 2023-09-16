@@ -2,6 +2,19 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import '@/styles/components/ui/menu.scss';
+/**
+ * Renders a menu component with customizable button and popup.
+ *
+ * @param {MenuProps} props - The props object containing the following properties:
+ *   - menuClass: string (optional) - Additional CSS class for the menu container.
+ *   - btnClass: string (optional) - Additional CSS class for the button.
+ *   - popupClass: string (optional) - Additional CSS class for the popup.
+ *   - buttonLabel: string (optional) - The label for the button.
+ *   - renderButton: function (optional) - A custom render function for the button.
+ *   - renderMenu: function (optional) - A custom render function for the menu.
+ *   - children: function (optional) - A render prop function for the menu.
+ * @return {JSX.Element} - The rendered menu component.
+ */
 function Menu(props: MenuProps) {
 	const {
 		menuClass = '',
