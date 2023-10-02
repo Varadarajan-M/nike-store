@@ -3,6 +3,7 @@ import { ProductCard } from '../components/products/ProductCards';
 
 import products from '@/data/products';
 import { TProduct } from '@/types';
+import { generateSlug } from '@/util';
 
 import '@/styles/pages/home.scss';
 
@@ -22,7 +23,11 @@ export default function Home() {
 
 			<section className='products__grid'>
 				{products.data.map((product: TProduct) => (
-					<ProductCard key={product.id} product={product} />
+					<ProductCard
+						key={product.id}
+						product={product}
+						link={`products/${generateSlug(product.attributes.name)}`}
+					/>
 				))}
 			</section>
 		</main>

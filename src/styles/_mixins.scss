@@ -1,5 +1,62 @@
 @import './variables';
 
+@mixin product-styles {
+	.product {
+		transition: transform 0.2s linear;
+		cursor: pointer;
+
+		&:hover {
+			transform: scale(1.05);
+		}
+
+		&__img {
+			object-fit: cover;
+			height: 90%;
+			width: 100%;
+			margin-bottom: 10px;
+			border-radius: 8px;
+		}
+
+		&__name {
+			font-weight: 600;
+			font-size: large;
+			display: block;
+			padding: 0 0.6rem;
+		}
+
+		&__price-details {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 0 0.6rem;
+			margin-top: 5px;
+
+			.product__prices {
+				display: inherit;
+				align-items: inherit;
+				gap: 0.5rem;
+				.product__price,
+				.product__original-price {
+					font-weight: 600;
+					font-size: medium;
+					color: #9a7878;
+					&::before {
+						content: '₹';
+					}
+				}
+				.product__original-price {
+					text-decoration: line-through;
+					font-size: small;
+				}
+			}
+			.product__offer {
+				color: #22c568;
+				font-weight: 500;
+			}
+		}
+	}
+}
+
 @mixin product-grid-styles {
 	.products__grid {
 		display: grid;
@@ -7,60 +64,7 @@
 		padding: 0 1rem;
 		margin-bottom: 4rem;
 
-		.product {
-			transition: transform 0.2s linear;
-			cursor: pointer;
-
-			&:hover {
-				transform: scale(1.05);
-			}
-
-			&__img {
-				object-fit: cover;
-				height: 90%;
-				width: 100%;
-				margin-bottom: 10px;
-				border-radius: 8px;
-			}
-
-			&__name {
-				font-weight: 600;
-				font-size: large;
-				display: block;
-				padding: 0 0.6rem;
-			}
-
-			&__price-details {
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				padding: 0 0.6rem;
-				margin-top: 5px;
-
-				.product__prices {
-					display: inherit;
-					align-items: inherit;
-					gap: 0.5rem;
-					.product__price,
-					.product__original-price {
-						font-weight: 600;
-						font-size: medium;
-						color: #9a7878;
-						&::before {
-							content: '₹';
-						}
-					}
-					.product__original-price {
-						text-decoration: line-through;
-						font-size: small;
-					}
-				}
-				.product__offer {
-					color: #22c568;
-					font-weight: 500;
-				}
-			}
-		}
+		@include product-styles();
 	}
 
 	@media screen and (min-width: $largeScreenSize) {

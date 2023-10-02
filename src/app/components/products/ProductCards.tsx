@@ -1,19 +1,19 @@
 import { IGenericComponentProps, TProduct } from '@/types';
-import { generateSlug } from '@/util';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
 interface IProductCardProps extends IGenericComponentProps {
 	product: TProduct;
+	link: string;
 }
 
 const calcOffer = (originalPrice: number, offerPrice: number) =>
 	Math.fround(((originalPrice - offerPrice) / originalPrice) * 100).toFixed(2);
 
-export function ProductCard({ product, className }: IProductCardProps) {
+export function ProductCard({ product, link, className }: IProductCardProps) {
 	return (
-		<Link href={`products/${generateSlug(product.attributes.name)}`}>
+		<Link href={link}>
 			<div className={`product ${className ?? ''}`}>
 				<Image
 					className='product__img'
