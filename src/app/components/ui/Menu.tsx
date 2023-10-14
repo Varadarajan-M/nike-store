@@ -30,8 +30,12 @@ function Menu(props: MenuProps) {
 
 	const classes = {
 		menu: `menu ${menuClass}`,
-		button: `menu__btn ${btnClass} ${!renderMenu ? 'styled' : ''}`,
-		popup: `menu__pop-up ${!renderMenu ? 'styled' : ''} ${popupClass}`,
+		button: `menu__btn ${btnClass} ${
+			!renderMenu && !btnClass.trim().length ? 'styled' : ''
+		}`,
+		popup: `menu__pop-up ${
+			!renderMenu && !popupClass.trim().length ? 'styled' : ''
+		} ${popupClass}`,
 	};
 
 	const handleMenuBtnClick = () => {

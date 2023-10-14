@@ -1,5 +1,11 @@
 @import './variables';
 
+@mixin hide-scrollbar {
+	::-webkit-scrollbar {
+		display: none;
+	}
+}
+
 @mixin product-styles {
 	.product {
 		transition: transform 0.2s linear;
@@ -82,5 +88,33 @@
 		.products__grid {
 			grid-template-columns: 1fr;
 		}
+	}
+}
+
+@mixin action-btn {
+	border: 1px solid black;
+	outline: none;
+	border-radius: 5rem;
+	padding: 0.7rem 1rem;
+	text-align: center;
+	font-size: 1.1rem;
+	font-weight: 500;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.4rem;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+		rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+
+	&:hover {
+		opacity: 0.7;
+	}
+	&.primary {
+		background-color: black;
+		color: white;
+	}
+	&.secondary {
+		background-color: white;
+		color: black;
 	}
 }

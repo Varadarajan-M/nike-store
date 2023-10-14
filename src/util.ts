@@ -14,3 +14,6 @@ String.prototype.toTitleCase = function (this: string) {
 
 export const EMAIL_REGEX: RegExp =
 	/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+export const tillRange = (max: number) =>
+	Array.from({ length: max ?? 10 }, (_, i) => i + 1);

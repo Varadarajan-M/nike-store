@@ -5,7 +5,10 @@ import ProductSizeChart from './ProductSizeChart';
 import { IGenericComponentProps } from '@/types';
 import { BsHeart } from 'react-icons/bs';
 
-const ActionButton = ({ children, className }: IGenericComponentProps) => {
+export const ActionButton = ({
+	children,
+	className,
+}: IGenericComponentProps) => {
 	return (
 		<button className={'product-actions__action-btn ' + className ?? ''}>
 			{children}
