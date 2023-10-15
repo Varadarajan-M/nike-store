@@ -1,4 +1,4 @@
-import { IGenericComponentProps, TProduct } from '@/types';
+import { IGenericComponentProps, TCartItem } from '@/types';
 import React from 'react';
 import '@/styles/components/cart/cart-item.scss';
 import Image, { StaticImageData } from 'next/image';
@@ -7,17 +7,7 @@ import { CartItemQty } from './CartItemQty';
 import { RiDeleteBinLine } from 'react-icons/ri';
 
 export interface ICartItemProps extends IGenericComponentProps {
-	item: {
-		id: number;
-		name: string;
-		price: number;
-		size: string;
-		category: string;
-		thumbnail: StaticImageData | string;
-		availableSizes: { size: string; enabled: boolean }[];
-		maxQuantity: number;
-		quantity: number;
-	};
+	item: TCartItem;
 }
 
 function CartItem({ item }: ICartItemProps) {

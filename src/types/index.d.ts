@@ -1,4 +1,5 @@
 import React from 'react';
+import { StaticImageData } from 'next/image';
 
 declare global {
 	interface String {
@@ -32,4 +33,16 @@ export type TProduct = {
 		image: string | any;
 		categories: string[];
 	};
+};
+
+export type TCartItem = {
+	id: number;
+	name: string;
+	price: number;
+	size: string;
+	category: string;
+	thumbnail: StaticImageData | string;
+	availableSizes: { size: string; enabled: boolean }[];
+	maxQuantity: number;
+	quantity: number;
 };

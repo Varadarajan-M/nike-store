@@ -1,8 +1,17 @@
 import React from 'react';
 import { ActionButton } from '../../products/ProductActions';
+import products from '@/data/products';
 
-function CartSummary() {
-	const subTotal = 25000;
+const loadCartSummary = async () => {
+	return new Promise((res, rej) => {
+		setTimeout(() => {
+			res(products.data.reduce((a, b) => a + b.attributes.price, 0));
+		}, 3000);
+	});
+};
+
+async function CartSummary() {
+	const subTotal = (await loadCartSummary()) as number;
 	const description =
 		'The subtotal reflects the total price of your order, including duties and taxes, before any applicable discounts. It does not include delivery costs and international transaction fees.';
 	return (
