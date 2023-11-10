@@ -2,6 +2,8 @@ import { IGenericComponentProps, TProduct } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import { MdFavoriteBorder, MdFavorite } from 'react-icons/md';
+import WishListIcon from './WishListIcon';
 
 interface IProductCardProps extends IGenericComponentProps {
 	product: TProduct;
@@ -12,9 +14,12 @@ const calcOffer = (originalPrice: number, offerPrice: number) =>
 	Math.fround(((originalPrice - offerPrice) / originalPrice) * 100).toFixed(2);
 
 export function ProductCard({ product, link, className }: IProductCardProps) {
+	const isWishlisted = product.id === 1;
+
 	return (
 		<Link href={link}>
 			<div className={`product ${className ?? ''}`}>
+				<WishListIcon isWishListed={isWishlisted} />
 				<Image
 					className='product__img'
 					src={product.attributes.image}

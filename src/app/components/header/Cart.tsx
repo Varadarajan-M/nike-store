@@ -8,7 +8,7 @@ const Cart = () => {
 	const router = useRouter();
 
 	const handleCartClick = () => {
-		if (!session) router.push('/auth');
+		if (!session) return router.push('/auth');
 
 		router.push('/cart');
 	};

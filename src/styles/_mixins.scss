@@ -10,9 +10,28 @@
 	.product {
 		transition: transform 0.2s linear;
 		cursor: pointer;
+		position: relative;
 
 		&:hover {
 			transform: scale(1.05);
+		}
+
+		&__wishlist {
+			position: absolute;
+			top: 0;
+			right: 0;
+			font-size: 1.5rem;
+			transform: translate(-1rem, 1rem);
+			transition: all 0.2s ease-in;
+
+			&.hidden {
+				opacity: 0;
+				pointer-events: none;
+			}
+			&--active {
+				opacity: 1;
+				cursor: pointer;
+			}
 		}
 
 		&__img {

@@ -10,7 +10,10 @@ const CategoryPage = ({ params }: { params: any }) => {
 	const category = hypenToSpace(params.slug ?? 'Shoes').toTitleCase();
 	return (
 		<section className='category'>
-			<h3 className='category__name'>{category}</h3>
+			<header className='category__name'>
+				<h6>{category}</h6>
+			</header>
+
 			<section className='products__grid'>
 				{products.data
 					.filter((p) => p.attributes.categories.includes(category))

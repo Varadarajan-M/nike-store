@@ -8,9 +8,9 @@ const WishList = () => {
 	const router = useRouter();
 
 	const handleWishListClick = () => {
-		if (!session) router.push('/auth');
+		if (!session) return router.push('/auth');
 
-		return;
+		router.push('/wishlist');
 	};
 
 	return (

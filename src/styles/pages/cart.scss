@@ -148,6 +148,9 @@
 }
 
 @media screen and (max-width: $smallScreenSize) {
+	.cart {
+		padding: 0 1.5rem;
+	}
 	.empty-cart {
 		img {
 			width: 83%;
