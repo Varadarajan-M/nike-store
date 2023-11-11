@@ -45,4 +45,5 @@ export type TCartItem = {
 	availableSizes: { size: string; enabled: boolean }[];
 	maxQuantity: number;
 	quantity: number;
+	originalPrice: number;
 };

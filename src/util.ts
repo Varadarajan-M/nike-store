@@ -17,3 +17,8 @@ export const EMAIL_REGEX: RegExp =
 
 export const tillRange = (max: number) =>
 	Array.from({ length: max ?? 10 }, (_, i) => i + 1);
+
+export const sleep = (ms: number = 1000) =>
+	new Promise((res) => {
+		setTimeout(res, ms);
+	});

@@ -8,8 +8,8 @@ import NavIcons from './NavIcons';
 import NavMobileDrawer from './NavMobileDrawer';
 
 import { navLinks } from './config';
-
 import nikeLogo from '@assets/logo.svg';
+
 import '@/styles/components/header/style.scss';
 
 const Nav = () => {
@@ -29,6 +29,7 @@ const Nav = () => {
 		},
 		[scrollY],
 	);
+
 	useEffect(() => {
 		window.addEventListener('scroll', handleScroll);
 		return () => window.removeEventListener('scroll', handleScroll);

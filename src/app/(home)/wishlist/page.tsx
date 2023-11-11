@@ -11,10 +11,7 @@ function Wishlist() {
 				<h6>Wishlist</h6>
 			</header>
 			<main className='wishlist__content'>
-				<Suspense fallback={<p>Loading wishlist...</p>}>
-					{/* @ts-ignore */}
-					<WishlistItems />
-				</Suspense>
+				<WishlistItems />
 			</main>
 		</div>
 	);

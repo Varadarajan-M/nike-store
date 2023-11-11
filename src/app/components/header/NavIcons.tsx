@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { FiHeart } from 'react-icons/fi';
 import { IoMdClose } from 'react-icons/io';
@@ -34,4 +34,4 @@ const NavIcons = ({
 	);
 };
 
-export default NavIcons;
+export default memo(NavIcons);

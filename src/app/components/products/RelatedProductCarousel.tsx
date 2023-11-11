@@ -38,7 +38,7 @@ function RelatedProductCarousel({ products }: IRelatedProductCarouselProps) {
 				<ProductCard
 					key={product.id}
 					product={product}
-					link={`/products/${generateSlug(product.attributes.name)}`}
+					link={`/products/${product.attributes.slug}`}
 				/>
 			))}
 		</Carousel>

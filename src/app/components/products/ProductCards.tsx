@@ -14,12 +14,10 @@ const calcOffer = (originalPrice: number, offerPrice: number) =>
 	Math.fround(((originalPrice - offerPrice) / originalPrice) * 100).toFixed(2);
 
 export function ProductCard({ product, link, className }: IProductCardProps) {
-	const isWishlisted = product.id === 1;
-
 	return (
-		<Link href={link}>
-			<div className={`product ${className ?? ''}`}>
-				<WishListIcon isWishListed={isWishlisted} />
+		<div className={`product ${className ?? ''}`}>
+			<WishListIcon product={product} />
+			<Link href={link}>
 				<Image
 					className='product__img'
 					src={product.attributes.image}
@@ -42,7 +40,7 @@ export function ProductCard({ product, link, className }: IProductCardProps) {
 						% off
 					</span>
 				</div>
-			</div>
-		</Link>
+			</Link>
+		</div>
 	);
 }

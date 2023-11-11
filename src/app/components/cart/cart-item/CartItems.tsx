@@ -1,39 +1,29 @@
-import { TCartItem } from '@/types';
-import React from 'react';
+'use client';
+
+import React, { Fragment } from 'react';
+import { useAtomValue } from 'jotai';
 import CartItem from './CartItem';
-import products from '@/data/products';
+import {
+	cartItemsCountAtom,
+	cartLoadingAtom,
+	splitCartItemsAtom,
+} from '@/jotai/cart/store';
+import Loader from '../../ui/Loader';
 
-const loadCartItems = async () => {
-	const cartItems = products.data.map(({ id, attributes }) => ({
-		id,
-		name: attributes.name,
-		price: attributes.price,
-		size:
-			attributes.size.data.find((s) => s.enabled)?.size ??
-			attributes.size?.data?.[0]?.size,
-		category: attributes.subtitle,
-		thumbnail: attributes.image,
-		availableSizes: attributes.size.data,
-		maxQuantity: 10,
-		quantity: 1,
-	}));
-	return new Promise((res, rej) => {
-		setTimeout(() => {
-			res(cartItems);
-		}, 2000);
-	});
-};
+function CartItems() {
+	const cartItems = useAtomValue(splitCartItemsAtom);
+	const totalItems = useAtomValue(cartItemsCountAtom);
+	const cartLoading = useAtomValue(cartLoadingAtom);
 
-async function CartItems() {
-	const cartItems = (await loadCartItems()) as TCartItem[];
-	const totalItems = cartItems?.length ?? 0;
+	if (cartLoading) return <Loader />;
+
 	return (
 		<div className='cart__items-content'>
-			{cartItems.map((item, index) => (
-				<>
-					<CartItem key={item.id} item={item} />
+			{cartItems.map((atom, index) => (
+				<Fragment key={atom.toString()}>
+					<CartItem atom={atom} />
 					{index < totalItems - 1 && <hr style={{ opacity: 0.3 }} />}
-				</>
+				</Fragment>
 			))}
 		</div>
 	);

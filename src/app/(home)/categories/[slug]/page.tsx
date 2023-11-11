@@ -22,7 +22,7 @@ const CategoryPage = ({ params }: { params: any }) => {
 						<ProductCard
 							key={product.id}
 							product={product}
-							link={`/products/${generateSlug(product.attributes.name)}`}
+							link={`/products/${product.attributes.slug}`}
 						/>
 					))}
 			</section>

@@ -35,6 +35,8 @@
 		flex-direction: column;
 		flex-basis: 65%;
 		gap: 1.2rem;
+		position: relative;
+		min-height: 300px;
 
 		&-header {
 			@include header-styles;

@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 
 import CartSummary from '@/app/components/cart/cart-summary/CartSummary';
 import EmptyCart from '@/app/components/cart/EmptyCart';
@@ -18,20 +18,12 @@ function Cart() {
 			<main className='cart__details'>
 				<section className='cart__items'>
 					<header className='cart__items-header'>Cart Items</header>
-					<div className='cart__items-content'>
-						<Suspense fallback={<p>Loading cart items...</p>}>
-							{/* @ts-ignore */}
-							<CartItems />
-						</Suspense>
-					</div>
+
+					<CartItems />
 				</section>
 				<aside className='cart__summary'>
 					<header className='cart__summary-header'>Summary</header>
-					<Suspense fallback={<p>Loading cart summary...</p>}>
-						{/* @ts-ignore */}
-
-						<CartSummary />
-					</Suspense>
+					<CartSummary />
 				</aside>
 			</main>
 		</div>

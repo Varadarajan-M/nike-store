@@ -1,30 +1,28 @@
 'use client';
 
-import { useSession } from 'next-auth/react';
-import React, { Fragment } from 'react';
 import { MdFavorite, MdFavoriteBorder } from 'react-icons/md';
+import React, { Fragment, useMemo } from 'react';
 
-type WishListIconProps = {
-	isWishListed: boolean;
-};
+import useWishlist from '@/hooks/useWishlist';
+import { TProduct } from '@/types';
 
-const WishListIcon = ({ isWishListed }: WishListIconProps) => {
-	const { data: session } = useSession();
+const WishListIcon = ({ product }: { product: TProduct }) => {
+	const { isLoggedin, toggleWishList, isItemWishlisted } = useWishlist(product);
 
-	if (!session) return null;
+	if (!isLoggedin) return null;
 
 	return (
 		<Fragment>
 			<MdFavoriteBorder
-				onClick={() => !isWishListed && console.log('Wishlisting')}
+				onClick={() => !isItemWishlisted && toggleWishList(product)}
 				className={`product__wishlist ${
-					isWishListed ? 'hidden' : 'product__wishlist--active'
+					isItemWishlisted ? 'hidden' : 'product__wishlist--active'
 				}`}
 			/>
 			<MdFavorite
-				onClick={() => isWishListed && console.log('Removing from Wishlist')}
+				onClick={() => isItemWishlisted && toggleWishList(product)}
 				className={`product__wishlist ${
-					isWishListed ? 'product__wishlist--active' : 'hidden'
+					isItemWishlisted ? 'product__wishlist--active' : 'hidden'
 				}`}
 			/>
 		</Fragment>

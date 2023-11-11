@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import Link from 'next/link';
 
 import NavMenu from './NavMenu';
@@ -38,4 +38,4 @@ const NavLinks = ({ links }: INavLinksProps) => {
 	);
 };
 
-export default NavLinks;
+export default memo(NavLinks);

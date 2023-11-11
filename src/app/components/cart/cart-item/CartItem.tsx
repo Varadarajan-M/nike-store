@@ -5,12 +5,33 @@ import Image, { StaticImageData } from 'next/image';
 import { CartItemSize } from './CartItemSize';
 import { CartItemQty } from './CartItemQty';
 import { RiDeleteBinLine } from 'react-icons/ri';
+import { PrimitiveAtom, useAtom, useSetAtom } from 'jotai';
+import { removeFromCartAtom } from '@/jotai/cart/store';
 
 export interface ICartItemProps extends IGenericComponentProps {
-	item: TCartItem;
+	atom: PrimitiveAtom<TCartItem>;
 }
 
-function CartItem({ item }: ICartItemProps) {
+function CartItem({ atom }: ICartItemProps) {
+	const [item, setItem] = useAtom(atom);
+	const removeFromCart = useSetAtom(removeFromCartAtom);
+
+	const handleCartItemSizeChange = (size: string) => {
+		if (!size) return;
+		setItem((prev) => ({ ...prev, size }));
+	};
+
+	const handleCartItemQtyChange = (qty: string) => {
+		if (!qty) return;
+		setItem((prev) => ({
+			...prev,
+			quantity: +qty,
+			price: +qty * +prev?.originalPrice,
+		}));
+	};
+
+	const handleRemoveFromCart = () => removeFromCart(item?.id);
+
 	return (
 		<div className='cart-item'>
 			<Image
@@ -33,13 +54,18 @@ function CartItem({ item }: ICartItemProps) {
 						<CartItemSize
 							size={item.size}
 							availableSizes={item.availableSizes}
+							onSizeSelect={handleCartItemSizeChange}
 						/>
 						<CartItemQty
 							quantity={item.quantity}
 							maxQuantity={item.maxQuantity}
+							onQtySelect={handleCartItemQtyChange}
 						/>
 					</div>
-					<RiDeleteBinLine className='cart-item__delete-btn' />
+					<RiDeleteBinLine
+						className='cart-item__delete-btn'
+						onClick={handleRemoveFromCart}
+					/>
 				</div>
 			</section>
 		</div>

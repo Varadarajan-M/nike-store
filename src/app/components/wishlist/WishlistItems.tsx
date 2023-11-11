@@ -1,25 +1,21 @@
-import products from '@/data/products';
-import { TProduct } from '@/types';
-import React, { Fragment } from 'react';
-import { ProductCard } from '../products/ProductCards';
+'use client';
 
-const loadWishlistItems = async () => {
-	const items = products.data?.slice(0, 6);
-	return new Promise((res) => {
-		setTimeout(() => {
-			res(items);
-		}, 2000);
-	});
-};
-async function WishlistItems() {
-	const wishlist = (await loadWishlistItems()) as TProduct[];
+import { ProductCard } from '../products/ProductCards';
+import useWishlist from '@/hooks/useWishlist';
+import Loader from '../ui/Loader';
+
+function WishlistItems() {
+	const { wishListItems, isLoading } = useWishlist();
+
+	if (isLoading) return <Loader />;
+
 	return (
 		<div className='products__grid'>
-			{wishlist?.map((product) => (
+			{wishListItems?.map((product) => (
 				<ProductCard
 					key={product?.attributes?.slug}
 					product={product}
-					link='#'
+					link={`/products/${product?.attributes?.slug}`}
 				/>
 			))}
 		</div>

@@ -3,7 +3,6 @@ import { ProductCard } from '../components/products/ProductCards';
 
 import products from '@/data/products';
 import { TProduct } from '@/types';
-import { generateSlug } from '@/util';
 
 import '@/styles/pages/home.scss';
 
@@ -26,7 +25,7 @@ export default function Home() {
 					<ProductCard
 						key={product.id}
 						product={product}
-						link={`products/${generateSlug(product.attributes.name)}`}
+						link={`products/${product?.attributes?.slug}`}
 					/>
 				))}
 			</section>
